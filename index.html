@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="google" content="notranslate">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Weather Info</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="clock" id="clock"></div>
+			<div class="weather">
+				<div id="ww_c3cc70bc24838" v='1.20' loc='id' a='{"t":"horizontal","lang":"en","ids":["wl9235"],"cl_bkg":"#000000","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","sl_sot":"celsius","sl_ics":"one","font":"Arial"}'>Weather for the Following Location: <a href="https://2ua.org/twn/taipei/map/" id="ww_c3cc70bc24838_u" target="_blank">Taipei map, Taiwan</a></div><script async src="https://srv2.weatherwidget.org/js/?id=ww_c3cc70bc24838"></script>
+			</div>
+			<div class="date" id="date"></div>
+		</div>
+
+		<script>
+var clockElement = document.getElementById("clock");
+
+function updateClock(clock) {
+	clock.innerHTML = new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', hour12: false});
+}
+setInterval(function () {
+	updateClock(clockElement);
+}, 1000);
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var d = new Date();
+var weekday = new Array(7);
+weekday[0] = "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
+
+var n = weekday[d.getDay()];
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+	dd = '0' + dd
+}
+
+if (mm < 10) {
+	mm = '0' + mm
+}
+
+today = dd + '.' + mm + '.' + yyyy;
+
+date.innerHTML = n + "<br>" + today;
+		</script>
+
+	</body>
+
+</html>
